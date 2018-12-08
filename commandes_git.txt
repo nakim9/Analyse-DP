@@ -1,0 +1,19 @@
+#--Petit Mémo pour communiquer avec Git--#
+
+ENVOI :
+	git commit -m "COMMENTAIRES"
+	git push origin master
+
+RECEVOIR :
+	git pull
+
+
+CREER UN FICHIER :
+	git add NOMFICHIER
+	ENVOI
+
+SUPPRIMER UN FICHIER :
+	git rm NOMFICHIER
+	ENVOI
+
+(Se conecter si besoin est)
