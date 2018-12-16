@@ -1,6 +1,7 @@
 #--Petit Mémo pour communiquer avec Git--#
 
 ENVOI :
+	(Si nouveau fichier : git add "NOMDUFICHIER")
 	git commit -m "COMMENTAIRES"
 	git push origin master
 
