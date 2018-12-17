@@ -9,4 +9,6 @@ JulienDOL :
 	-Fonction affichage d'une vidéo #EnCours			#EnCours
 
 TanguiR:
-	-
+	-Fonction de lecture du CSV retournant un tableau de VIDEO	#Encours
+	-Struct VIDEO							#Fait
+
