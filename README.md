@@ -13,4 +13,5 @@ TanguiR:
 	-Struct VIDEO							#Fait
 	-main.c								#EnCours
 	-MakeFiles							#EnCours
-	-Reorganisation du repertoir					#A Faire
+	-Reorganisation du repertoire					#EnCours
+
