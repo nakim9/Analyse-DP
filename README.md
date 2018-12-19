@@ -6,7 +6,7 @@ REPARTITION DES TACHES :
 JulienDOL :
 	-Fonction tier le fichier .json pour en tirer les ID-catégories	#Fait
 	-Fonction qui retourna la catégorie d'un ID donné 		#Fait
-	-Fonction affichage d'une vidéo #EnCours			#EnCours
+	-Fonction affichage d'une vidéo 				#Fait
 
 TanguiR:
 	-
