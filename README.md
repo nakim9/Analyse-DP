@@ -9,4 +9,8 @@ JulienDOL :
 	-Fonction affichage d'une vidéo 				#Fait
 
 TanguiR:
-	-
+	-Fonction de lecture du CSV retournant un tableau de VIDEO	#Fait
+	-Struct VIDEO							#Fait
+	-main.c								#EnCours
+	-MakeFiles							#EnCours
+	-Reorganisation du repertoir					#A Faire
