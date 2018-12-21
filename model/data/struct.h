@@ -1,7 +1,7 @@
 typedef struct VIDEO {
   char titre[128];
   char chaine[64];
-  char categorie[32];
+  int categorie;
   char motcles[256];
   int vues;
   int likes;

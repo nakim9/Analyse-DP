@@ -6,6 +6,8 @@
 #include "../data/struct.h"
 #include "../id_vers_cat/ID_vers_CAT.h"
 #include "accessdata.h"
+#include "../../vue/affichage_VIDEO.h"
+
 
 #define TAILLE_LIGNE 5000
 #define JSON "model/data/FR_category_id.json"
@@ -15,18 +17,16 @@
   tabVideo -> poiteur de retour qui pointera sur le tableau de VIDEO
   nbElem -> valeur de retour qui contiendra le nombre d'element du tableau tabVideo
 **/
-void csvToVideo(char * nomf, VIDEO * tabVideo, int nbElem){
+void csvToVideo(char * nomf, VIDEO * tab, int nbElem){
   //initialisation des valeur de retour; permet d'enlever les Warning
-  tabVideo = NULL;
   nbElem = 0;
   FILE * f = NULL;
   f = fopen(nomf, "r");
   if(f!=NULL){
     char * ret; //Valeur de retour de la lecture de la ligne -> si ret == NULL alors la lecture est arrivée au bout du fichier
     char * rest; //Reste de la ligne après un strtok_r
-    int idCat;
+    //int idCat;
     int nbLigne = compNbLines(f);
-    VIDEO * tab = malloc(sizeof(VIDEO)*nbLigne); //Tableau qui contiendra toutes les vidéos
     char * ligne = malloc(sizeof(char)*TAILLE_LIGNE); //Ligne lue. Definie très grande pour contenir beaucoup de caractère mais réutilisé à chaque ligne
     char * att = malloc(sizeof(char)*128); //variable stockant le resultat de la lecture d'un ATTribut
     fgets(ligne, sizeof(char)*TAILLE_LIGNE, f); //lecture de la ligne, la première ligne étant l'en-tête du CSV, on passe
@@ -34,62 +34,65 @@ void csvToVideo(char * nomf, VIDEO * tabVideo, int nbElem){
 
     for(int i = 0; ret != NULL ; i++){
       /* lecture dans la structure */
-
+      ////printf("vidid\n");
       //vid_id
       getChamp(ligne,att);
-
+      ////printf("trend\n");
       //trending_date
       getChamp(ligne,att);
-
+////printf("title\n");
       //title
       getChamp(ligne,att);
       strcpy(tab[i].titre,att);
-
+      //printf("titre : %s\n", tab[i].titre);
+////printf("chan\n");
       //channel_title
       getChamp(ligne,att);
       strcpy(tab[i].chaine,att);
-
+      ////printf("cat\n");
       //category_id
       getChamp(ligne,att);
-      idCat = atoi(att);
-      ID_vers_CAT(idCat, att, JSON);
-      strcpy(tab[i].categorie,att);
-
+      //strcpy(tab[i].categorie,att);
+      tab[i].categorie = atoi(att);
+      ////printf("%d\n", idCat);
+      //ID_vers_CAT(idCat, att, JSON);
+      //strcpy(tab[i].categorie,idCat);
+////printf("pubtime\n");
       //publish_time
       getChamp(ligne,att);
-
+      //printf("tags %s\n", ligne);
       //tags
       strcpy(tab[i].motcles,strtok_r(ligne,",",&rest));
       strcpy(ligne,rest);
-
+      //printf("view %s\n", ligne);
       //views
       getChamp(ligne,att);
       tab[i].vues = atoi(att);
-
+      //printf("-->%d %d\n", tab[i].vues, atoi(att));
       //likes
       getChamp(ligne,att);
       tab[i].likes = atoi(att);
-
+      ////printf("dis\n");
       //dislikes
       getChamp(ligne,att);
       tab[i].dislikes = atoi(att);
-
+      ////printf("comment\n\n\n");
       //comment_count
       getChamp(ligne,att);
       tab[i].commentaires = atoi(att);
-
+      //printf("%d\n", tab[i].vues);
+      //affichage_VIDEO(tab+i);
       ret = fgets(ligne, sizeof(char)*TAILLE_LIGNE, f);//lecture de la ligne suivante
     }
     //Preparation des valeurs de retour
-    tabVideo = tab;
     nbElem = nbLigne;
-    free(tab);
     free(att);
     fclose(f);
   }
   else{
-    printf("%s%s%s\n", "Le fichier \"", nomf, "\" n'est pas trouvé");
+    //printf("Le fichier \"%s\" n'est pas trouvé\n", nomf);
   }
+
 }
 
 /**

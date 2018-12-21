@@ -1,1 +1,1 @@
- float moyenne_vues (VIDEO *V, int nb);
+float moyenne_like_dislike (VIDEO *V, int nb, float *likes, float *dislikes);

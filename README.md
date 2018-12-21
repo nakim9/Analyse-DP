@@ -12,6 +12,7 @@ TanguiR:
 	-Fonction de lecture du CSV retournant un tableau de VIDEO	#Fait
 	-Struct VIDEO							#Fait
 	-main.c								#EnCours
-	-MakeFiles							#EnCours
-	-Reorganisation du repertoire					#EnCours
+	-MakeFiles							#Fait
+	-Reorganisation du repertoire					#Fait
+
 
